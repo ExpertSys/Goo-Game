@@ -290,7 +290,7 @@ function floorItems(width, height, img, x, y, r, id, stage){
   itemHitBox.style.width = "30px";
   itemHitBox.style.height = "30px";
   itemHitBox.style.position = "absolute";
-  itemHitBox.style.backgroundImage = "url('../images/character-left.png')";
+  itemHitBox.style.backgroundImage = "url('images/character-left.png')";
   itemHitBox.style.backgroundSize = "cover";
 
   itemHitBox.style.left = (width - width / 1) + "px";
@@ -302,7 +302,7 @@ function floorItems(width, height, img, x, y, r, id, stage){
   nItem.setAttribute("class", id);
   nItem.style.width = width + "px";
   nItem.style.height = height + "px";
-  nItem.style.backgroundImage = `url('../images/${img}.png')`;
+  nItem.style.backgroundImage = `url('images/${img}.png')`;
   nItem.style.backgroundSize = "cover";
   nItem.style.backgroundPosition = "center";
   nItem.style.left = x + "px";
@@ -857,16 +857,21 @@ function showStages(){
 }
 
 function mainScreen(){
+  drawActive = false;
   $("#mainMenu").show();
   $("#draw-system-ui").hide();
   $("#stageMessage").hide();
   $("#stage-select").hide();
   $("#mainMenu-Btn").hide();
+  $(".drawing-instructions").css("display","none");
   $("#player").css("display","none");
   $("#levelOneTrack").trigger("pause");
   $("#track4").trigger("pause");
   $("#track5").trigger("pause");
-  $("#menuTrack").trigger("play");
+  // $("#menuTrack").trigger("play");
+  $(".coordinate").hover(function(){
+    $(".coordinate").removeClass('coordHover');
+  })
   
   clearMap();
   speed = 0;
@@ -887,7 +892,12 @@ function startGame() {
 }
 
 function normalMode(){
-  $("#levelOneTrack").trigger("play");
+  drawActive = false;
+  $(".coordinate").hover(function(){
+    $(".coordinate").removeClass('coordHover');
+  })
+  $("#coords").css("visibility","hidden");
+  // $("#levelOneTrack").trigger("play");
   $("#menuTrack").trigger("pause");
   $("#mainMenu-Btn").show();
   spawnItem(player, 50, 50);
@@ -905,9 +915,16 @@ function normalMode(){
   getWallData();
   $("#curr-level").html(level);
   $("#stageMessage").fadeIn(1500).fadeOut(1500);
+  $(".drawing-instructions").css("display","none");
 }
 
 function developerMode(){
+  drawActive = true;
+  $(".coordinate").hover(function(){
+    $(".coordinate").removeClass('coordHover');
+    $(this).addClass('coordHover');
+  })
+  $("#coords").css("visibility","visible");
   $("#mainMenu-Btn").hide();
   spawnItem(player, 50, 50);
   $("#player").css("display","block");
@@ -969,13 +986,13 @@ function checkKeyD(e) {
   else if (e.keyCode == '37') {
     player.speedX = -speed;
     currDir='left';
-    document.getElementById("player").style.backgroundImage = "url('../images/character-left.png')";
+    document.getElementById("player").style.backgroundImage = "url('images/character-left.png')";
   } 
   // right arrow
   else if (e.keyCode == '39') {
     player.speedX = speed;
     currDir='right';
-    document.getElementById("player").style.backgroundImage = "url('../images/character.png')";
+    document.getElementById("player").style.backgroundImage = "url('images/character.png')";
   }
 }
 document.onkeyup = clearmove;
