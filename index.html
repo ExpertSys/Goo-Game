@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan</title>
+    <script type="text/javascript">
+    </script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+</head>
+<body id="body">
+    <form name ="show" id="coords">
+        <input type="text" name="mouseXField" value="0" size="6">Mouse X Position<br>
+        <input type="text" name="mouseYField" value="0" size="6">Mouse Y Position<br>
+    </form>
+    
+    <div id="map">
+        <span id="playMusic" class="audio-btns"><img src="images/play.png" width="25"></span>
+        <span id="pauseMusic" class="audio-btns"><img src="images/pause.png" width="25"></span>
+        <div class="fence-horizontal"></div>
+        <div class="fence-vertical"></div>
+        <div id="stageMessage">
+            <h1 id="stage-announce">Floor <span id="curr-level"></span></h1>
+        </div>
+        <div id="mainMenu">
+            <div id="menu-heading">
+                <h1>Blob Chase</h1>
+                <img src="images/character-happy.png">
+            </div>
+
+            <ul>
+                <li onclick="normalMode();">Normal Mode</li>
+                <li onclick="showStages();">Select Stage</li>
+                <li onclick="developerMode();">Developer Mode</li>
+            </ul>
+        </div>
+        <div id="stage-select">
+            <div id="level-select">
+                <h1>Level Select</h1>
+            </div>
+            <div class="current-stages">
+                <ul>
+                    <li onclick="stageSelect(0)">
+                        <img src="images/stage1.png" width="100" height="100">
+                    </li>
+                    <li onclick="stageSelect(1)">
+                        <img src="images/stage2.png" width="100" height="100">
+                    </li>
+                    <li onclick="stageSelect(2)">
+                        <img src="images/stage3.png" width="100" height="100">
+                    </li>
+                    <li onclick="stageSelect(3)">
+                        <img src="images/stage4.png" width="100" height="100">
+                    </li>
+                    <li onclick="stageSelect(4)">
+                        <img src="images/stage5.png" width="100" height="100">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button id="mainMenu-Btn" class="draw-btn" onclick="mainScreen();">Main Menu</button>
+    <div class="drawing-instructions">
+        <h1>Press Z after releasing to make a horizontal wall.</h1>
+        <h1>Press X after releasing to make a vertical wall.</h1>
+    </div>
+
+    <div id="draw-system-ui">
+        <div id="btn-controls">
+            <button id="draw-mode-on" class="draw-btn">Enable Draw Mode</button>
+            <button id="draw-mode-off" class="draw-btn">Disable Draw Mode</button>
+        </div>
+        <div id="hitbox-controls">
+            <button id="hitbox-mode-on" class="draw-btn">Toggle Player Hitbox</button>
+            <button id="hitbox-mode-on-target" class="draw-btn">Toggle Target Hitbox</button>
+        </div>
+        <div id="map-controls">
+            <button id="clearnMap" class="draw-btn" onclick="clearMap();">New Map</button>
+            <button id="clearnMap" class="draw-btn" onclick="mainScreen();">Main Menu</button>
+        </div>
+
+        <div id="game-stats">
+            <div id="levelCodes" class='stats'>
+            </div>
+        </div>
+    </div>
+
+    <!-- sound effects -->
+    <audio src="music/level1.mp3" id="levelOneTrack"></audio>
+    <audio src="music/level2.mp3" id="track2"></audio>
+    <audio src="music/level3.mp3" id="menuTrack"></audio>
+    <audio src="music/level4.mp3" id="track4"></audio>
+    <audio src="music/level5.mp3" id="track5"></audio>
+    <audio src="music/item.mp3" id="itemPickup"></audio>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
