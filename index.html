@@ -2,21 +2,24 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blob Chase</title>
+    <title>Jordan</title>
     <script type="text/javascript">
     </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 </head>
 <body id="body">
+    <span id="top"></span>
     <form name ="show" id="coords">
         <input type="text" name="mouseXField" value="0" size="6">Mouse X Position<br>
         <input type="text" name="mouseYField" value="0" size="6">Mouse Y Position<br>
     </form>
+
+    <div id="game-container">
     
     <div id="map">
+        <span id="pauseMusic" class="audio-btns"><span id="music">Music</span><img src="images/pause.png" width="25"></span>
         <span id="playMusic" class="audio-btns"><img src="images/play.png" width="25"></span>
-        <span id="pauseMusic" class="audio-btns"><img src="images/pause.png" width="25"></span>
         <div class="fence-horizontal"></div>
         <div class="fence-vertical"></div>
         <div id="stageMessage">
@@ -60,7 +63,6 @@
         </div>
     </div>
 
-    <button id="mainMenu-Btn" class="draw-btn" onclick="mainScreen();">Main Menu</button>
     <div class="drawing-instructions">
         <h1>Press Z after releasing to make a horizontal wall.</h1>
         <h1>Press X after releasing to make a vertical wall.</h1>
@@ -68,8 +70,8 @@
 
     <div id="draw-system-ui">
         <div id="btn-controls">
-            <button id="draw-mode-on" class="draw-btn">Enable Draw Mode</button>
-            <button id="draw-mode-off" class="draw-btn">Disable Draw Mode</button>
+            <a href="#top"><button id="draw-mode-on" class="draw-btn">Enable Draw Mode</button></a>
+            <a href="#top"><button id="draw-mode-off" class="draw-btn">Disable Draw Mode</button></a>
         </div>
         <div id="hitbox-controls">
             <button id="hitbox-mode-on" class="draw-btn">Toggle Player Hitbox</button>
@@ -85,9 +87,11 @@
             </div>
         </div>
     </div>
+    <button id="mainMenu-Btn" class="draw-btn" onclick="mainScreen();">Main Menu</button>
+</div>
 
     <!-- sound effects -->
-    <audio src="music/level1.mp3" id="levelOneTrack"></audio>
+    <audio src="music/level4.mp3" id="levelOneTrack"></audio>
     <audio src="music/level2.mp3" id="track2"></audio>
     <audio src="music/level3.mp3" id="menuTrack"></audio>
     <audio src="music/level4.mp3" id="track4"></audio>
