@@ -9,6 +9,7 @@ $(document).ready(function(){
         e.preventDefault();
     }
   }, false);
+  
 })
 
 /* Player */
